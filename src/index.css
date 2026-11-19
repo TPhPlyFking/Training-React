@@ -1,0 +1,40 @@
+/* ========== CSS luyện tập BookNest ==========
+   Màu trong Figma:
+   nền trang  #F7F3EE   | chữ chính  #1F2933
+   chữ phụ    #6B7280   | màu nhấn   #C2410C (cam đất)
+   nền thẻ    #FFFFFF   | viền nhạt  #E5E1DA
+   Font: Inter
+   Công thức vw: desktop = px Figma ÷ 14.4 (frame 1440) | mobile = px ÷ 3.9 (frame 390)
+*/
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #F7F3EE;
+  color: #1F2933;
+}
+
+/* ===== Bài 1: Header desktop ===== */
+.header {
+  /* TODO: flex, 2 đầu, canh giữa dọc, padding, nền trắng, viền dưới */
+}
+
+/* ===== Bài 2: Header sticky + mobile ===== */
+/* TODO */
+
+/* ===== Bài 3: Thẻ sách ===== */
+.book-card {
+  /* TODO */
+}
+
+/* ===== Bài 6: Danh sách + nút xem tất cả ===== */
+.book-list {
+  /* TODO */
+}
+
+/* ===== Bài 7: Responsive (≤ 768px) ===== */
+@media (max-width: 768px) {
+  /* TODO */
+}

@@ -1,0 +1,18 @@
+// Dữ liệu giả, dùng thay cho API. Mỗi cuốn sách là 1 object.
+// color: màu nền của ô bìa sách (thay cho ảnh)
+const books = [
+  { id: 1, title: "Clean Code", author: "Robert C. Martin", price: 320000, color: "#F4A261",
+    intro: "Viết code dễ đọc\nĐặt tên biến rõ ràng\nHàm ngắn, làm một việc\nCách viết comment hợp lý\nRefactor từng bước nhỏ" },
+  { id: 2, title: "Atomic Habits", author: "James Clear", price: 189000, color: "#2A9D8F",
+    intro: "Thói quen nhỏ mỗi ngày\nQuy tắc 1%\nThiết kế môi trường\nTheo dõi thói quen\nPhá thói quen xấu" },
+  { id: 3, title: "Đắc Nhân Tâm", author: "Dale Carnegie", price: 99000, color: "#E76F51",
+    intro: "Lắng nghe người khác\nKhen ngợi chân thành\nTránh tranh cãi\nNhớ tên người đối diện\nKhơi gợi mong muốn" },
+  { id: 4, title: "Sapiens", author: "Yuval Noah Harari", price: 259000, color: "#264653",
+    intro: "Cách mạng nhận thức\nCách mạng nông nghiệp\nSự thống nhất loài người\nCách mạng khoa học\nTương lai của Sapiens" },
+  { id: 5, title: "Don't Make Me Think", author: "Steve Krug", price: 210000, color: "#8AB17D",
+    intro: "Thiết kế dễ dùng\nNgười dùng chỉ lướt\nĐiều hướng rõ ràng\nTrang chủ quan trọng\nTest với người thật" },
+  { id: 6, title: "Nhà Giả Kim", author: "Paulo Coelho", price: 79000, color: "#E9C46A",
+    intro: "Đi theo giấc mơ\nNgôn ngữ của vũ trụ\nNgười thầy giả kim\nKho báu thật sự\nHành trình là bài học" },
+];
+
+export default books;
