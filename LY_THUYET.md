@@ -163,3 +163,85 @@ book.price.toLocaleString("vi-VN") + " đ"   // 320000 → "320.000 đ"
 | Bật/tắt | `setX(!x)` |
 | Vẽ danh sách | `arr.map((item) => <X key={item.id} .../>)` |
 | |  |
+
+---
+
+## Phần D — Hook, useEffect và gọi API
+
+### 1. Hook là gì
+Hook là **hàm bắt đầu bằng `use`**, bên trong được dùng `useState`, `useEffect`.
+Tự viết hook (custom hook) = gom logic dùng lại nhiều chỗ vào 1 hàm, component nào cần thì gọi.
+Quy tắc: chỉ gọi hook **ở đầu component**, không gọi trong `if`, vòng lặp, hay trong hàm `onClick`.
+
+### 2. useEffect
+```jsx
+useEffect(() => {
+  // code chạy SAU khi component hiện lên màn hình
+  return () => {
+    // (không bắt buộc) dọn dẹp, chạy khi component bị gỡ
+  };
+}, [phụ thuộc]);
+```
+| Mảng phụ thuộc | Chạy khi nào |
+|---|---|
+| `[]` | 1 lần lúc đầu → dùng cho gọi API, gắn sự kiện |
+| `[x]` | lúc đầu + mỗi khi `x` đổi |
+| không ghi | sau **mỗi** lần render → dễ lặp vô hạn, tránh |
+
+**Vì sao không gọi fetch thẳng trong component?** Vì component chạy lại mỗi lần render → fetch → setState → render → fetch... lặp mãi. Bỏ vào `useEffect(..., [])` thì chỉ chạy 1 lần.
+
+### 3. matchMedia (cho hook detect mobile)
+```js
+const mediaQuery = window.matchMedia("(max-width: 768px)");
+mediaQuery.matches;                       // true/false ngay lúc này
+mediaQuery.addEventListener("change", fn); // gọi fn mỗi khi vượt qua mốc 768px
+mediaQuery.removeEventListener("change", fn);
+```
+- `mediaQuery` là **object**, `.matches` là **thuộc tính** (true/false).
+- Trong hàm lắng nghe `(e) => ...`, `e` là **sự kiện**, `e.matches` là kết quả mới.
+- Phải `removeEventListener` trong hàm dọn dẹp → nếu không, component bị gỡ rồi mà vẫn còn lắng nghe.
+- Muốn gỡ được thì phải truyền **đúng cùng 1 hàm** cho add và remove → đặt hàm vào 1 biến.
+
+Khung tư duy:
+```
+state = mediaQuery.matches lúc đầu
+useEffect [] → gắn "change" → set state
+             → return gỡ "change"
+return state
+```
+
+### 4. fetch + async/await (cho gọi API)
+```js
+const res = await fetch(url);   // gửi request, chờ phản hồi
+if (!res.ok) throw new Error("HTTP " + res.status);  // 404, 500... fetch KHÔNG tự báo lỗi
+const json = await res.json();  // đổi chữ JSON thành object
+```
+- `await` chỉ dùng được trong hàm `async`. Hàm trong `useEffect` **không được** là async trực tiếp → tạo hàm async bên trong rồi gọi nó.
+- `try { } catch (err) { } finally { }`: `try` chạy bình thường, lỗi nhảy vào `catch`, `finally` luôn chạy (chỗ tắt loading).
+
+Khung tư duy:
+```
+3 state: data=[], loading=true, error=null
+useEffect [] → hàm async:
+   try   → fetch → kiểm tra ok → json → setData
+   catch → setError
+   finally → setLoading(false)
+→ gọi hàm đó
+return { data, loading, error }
+```
+
+### 5. Component dùng dữ liệu API: 3 trạng thái
+```jsx
+if (loading) return <p>Đang tải...</p>;
+if (error) return <p>Không tải được dữ liệu</p>;
+return <BookList books={books} />;
+```
+Luôn nghĩ đủ 3 trường hợp: **đang tải / lỗi / có dữ liệu**. Thiếu "đang tải" → lúc đầu `books` rỗng, trang trống. Thiếu "lỗi" → API hỏng thì trang trắng không biết vì sao.
+
+### 6. Hay sai
+| Lỗi | Nguyên nhân |
+|---|---|
+| `books.map is not a function` | `setBooks(json)` thay vì `setBooks(json.data)` |
+| Gọi API liên tục trong tab Network | quên `[]` ở useEffect |
+| Kéo cửa sổ mà isMobile không đổi | chưa gắn sự kiện `change`, chỉ đọc `.matches` 1 lần |
+| Lỗi `await is only valid in async` | quên chữ `async` trước hàm |

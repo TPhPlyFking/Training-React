@@ -65,6 +65,27 @@ Gõ chữ thẳng vào `BookCard.jsx`, chưa dùng props.
 
 **Tự kiểm tra:** F12 → chế độ điện thoại 390px nhìn giống frame Mobile trong Figma.
 
+## Bài 8 — Hook `useMobileDetect` (useState + useEffect + matchMedia)
+File: `src/hooks/useMobileDetect.js`
+- Trả về `true` khi màn hình ≤ 768px, `false` khi lớn hơn.
+- Kéo cửa sổ qua lại mốc 768px thì giá trị tự đổi, **không cần F5**.
+- Dùng trong `Header.jsx`: `const isMobile = useMobileDetect();`
+  → mobile thì render nút menu, desktop thì render nav + nút Đăng nhập (dùng `if (isMobile) return ...` hoặc `? :`).
+
+**Tự kiểm tra:** viết tạm `<p>{isMobile ? "mobile" : "desktop"}</p>`, kéo cửa sổ thấy chữ đổi. Xong thì xóa dòng đó.
+
+## Bài 9 — Lấy dữ liệu từ API (fetch + loading + error)
+File: `src/hooks/useBooks.js`. API giả: `/api/books.json` (mở http://localhost:5173/api/books.json để xem dữ liệu).
+- Hook trả về `{ books, loading, error }`.
+- Trong `App.jsx`: bỏ `import books from "./data.js"`, thay bằng `const { books, loading, error } = useBooks();`
+- Đang tải → hiện chữ "Đang tải...". Lỗi → hiện "Không tải được dữ liệu". Xong → hiện `BookList`.
+- Lưu ý: dữ liệu nằm trong `json.data`, không phải `json`.
+
+**Tự kiểm tra:**
+1. F12 → tab Network → thấy request `books.json` trạng thái 200.
+2. Đổi `API_URL` thành `/api/sai.json` → phải hiện chữ báo lỗi, trang không trắng.
+3. F12 → Network → chọn **Slow 4G** rồi F5 → thấy chữ "Đang tải..." một lúc.
+
 ---
 
 ## Thử thách thêm (khi đã làm 7 bài nhanh)
