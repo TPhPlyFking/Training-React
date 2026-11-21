@@ -44,10 +44,10 @@ Không có bài "làm tĩnh": mọi dữ liệu (sách, menu) đều lấy từ 
 
 ## Phần 1 — API + hook
 
-### Bài 1 — `useMenu` và `useBooks` (fetch + loading + error)
+### Bài 1 — `useMenu` và `useBooks` (fetch + useEffect)
 File: `src/hooks/useMenu.js`, `src/hooks/useBooks.js`. Đường dẫn API ghi sẵn ở đầu mỗi file. `src/api/apiHelper.js` đã viết sẵn, chỉ việc gọi.
 - `useMenu` trả về mảng `menu` (4 link: id, label, href).
-- `useBooks` trả về `{ books, loading, error }`.
+- `useBooks` trả về mảng `books` (6 cuốn).
 
 **Tự kiểm tra:**
 1. Mở http://localhost:5173/api/books.json và `/api/menu.json` thấy dữ liệu.
@@ -93,12 +93,12 @@ File: `BookCard/BookCardDesktop.jsx`, `index.css`. **Figma:** component BookCard
 
 **Tự kiểm tra:** mở thẻ 1 thì thẻ 2 không bị ảnh hưởng. Ô bìa luôn nằm trên cùng, không bị kéo dãn khi chữ dài ra. Sửa 1 cuốn trong `public/api/books.json` rồi F5 → giao diện đổi theo.
 
-### Bài 6 — Danh sách thẻ (map + loading/error)
+### Bài 6 — Danh sách thẻ (map)
 File: `BookList/BookList.jsx`, `BookList/BookListDesktop.jsx`, `index.css`.
-- `BookList` (cha) gọi `useBooks()`: đang tải → "Đang tải...", lỗi → "Không tải được dữ liệu", có dữ liệu → truyền `books` xuống `BookListDesktop`.
+- `BookList` (cha) gọi `useBooks()` rồi truyền `books` xuống `BookListDesktop`.
 - `BookListDesktop` dùng `map` vẽ ra `<BookCard book={...} />`, có `key`. `BookCard.jsx` (cha) tạm trả về `<BookCardDesktop />`. Rộng 1100px canh giữa, các thẻ cách nhau 24px.
 
-**Tự kiểm tra:** F12 → Network → chọn **Slow 4G** rồi F5 → thấy "Đang tải..." một lúc.
+**Tự kiểm tra:** sửa 1 cuốn trong `public/api/books.json` rồi F5 → giao diện đổi theo.
 
 ### Bài 7 — Nút "Xem tất cả" (state ở cha)
 File: `BookList/BookList.jsx`, `BookList/AllBooks.jsx`.
