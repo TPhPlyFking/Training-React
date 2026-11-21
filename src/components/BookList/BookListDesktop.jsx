@@ -1,11 +1,7 @@
-// Bài 6: Danh sách thẻ - DESKTOP
-// Figma: frame "book-list" trong "Desktop – BookNest (1440)"
-// Nhận books (mảng từ API) từ BookList qua props.
-//
-// 1. Tiêu đề "Sách nổi bật"
-// 2. Vùng cards: books.map(...) vẽ ra <BookCardDesktop book={...} />, nhớ key (dùng book.id)
-//    Các thẻ xếp dọc, cách nhau 24px
-import BookCardDesktop from "../BookCard/BookCardDesktop.jsx";
+// Bài 6: Danh sách desktop (Figma: book-list trong Desktop 1440)
+// Tiêu đề "Sách nổi bật" + books.map(...) ra <BookCard book={...} />, key = book.id
+// Các thẻ xếp dọc, cách nhau 24px
+import BookCard from "../BookCard/BookCard.jsx";
 
 function BookListDesktop() {
   return (

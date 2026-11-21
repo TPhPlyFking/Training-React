@@ -1,7 +1,6 @@
-// Bài 8: Danh sách thẻ - MOBILE
-// Figma: frame "book-list" trong "Mobile – BookNest (390)"
-// Giống BookListDesktop nhưng vẽ <BookCardMobile />, padding 16px, các thẻ cách nhau 16px.
-import BookCardMobile from "../BookCard/BookCardMobile.jsx";
+// Bài 8: Danh sách mobile (Figma: book-list trong Mobile 390)
+// Giống desktop: books.map(...) ra <BookCard book={...} />, padding 16px, các thẻ cách nhau 16px
+import BookCard from "../BookCard/BookCard.jsx";
 
 function BookListMobile() {
   return (

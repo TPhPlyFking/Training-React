@@ -1,10 +1,5 @@
-// Bài 7: Nút "Xem tất cả" / "Thu gọn" - dùng chung cho desktop và mobile
-// Figma: btn-all (desktop 200x52, mobile 200x48), nền cam, chữ trắng, có mũi tên chevron-down
-//
-// Nhận props từ BookList: showAll (true/false) và onClick
-// 1. <button className="btn-all" onClick={onClick}>
-// 2. Chữ: showAll ? "Thu gọn" : "Xem tất cả"
-// 3. Khoảng cách trên và dưới nút bằng nhau (40px desktop, 24px mobile)
+// Bài 7: Nút "Xem tất cả" / "Thu gọn" (desktop 200x52, mobile 200x48)
+// Nhận props showAll và onClick. Chữ: showAll ? "Thu gọn" : "Xem tất cả"
 
 function AllBooks() {
   return (

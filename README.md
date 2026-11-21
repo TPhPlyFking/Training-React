@@ -26,6 +26,7 @@ src/components/BookList/BookList.jsx    cha: useBooks + showAll, chọn Desktop 
 src/components/BookList/BookListDesktop.jsx  vẽ nhiều thẻ desktop
 src/components/BookList/BookListMobile.jsx   vẽ nhiều thẻ mobile
 src/components/BookList/AllBooks.jsx    nút Xem tất cả / Thu gọn
+src/components/BookCard/BookCard.jsx    cha: chọn thẻ Desktop hay Mobile
 src/components/BookCard/BookCardDesktop.jsx  1 thẻ sách desktop
 src/components/BookCard/BookCardMobile.jsx   1 thẻ sách mobile
 src/App.jsx                             ghép Header + BookList
@@ -95,7 +96,7 @@ File: `BookCard/BookCardDesktop.jsx`, `index.css`. **Figma:** component BookCard
 ### Bài 6 — Danh sách thẻ (map + loading/error)
 File: `BookList/BookList.jsx`, `BookList/BookListDesktop.jsx`, `index.css`.
 - `BookList` (cha) gọi `useBooks()`: đang tải → "Đang tải...", lỗi → "Không tải được dữ liệu", có dữ liệu → truyền `books` xuống `BookListDesktop`.
-- `BookListDesktop` dùng `map` vẽ ra `<BookCardDesktop book={...} />`, có `key`. Rộng 1100px canh giữa, các thẻ cách nhau 24px.
+- `BookListDesktop` dùng `map` vẽ ra `<BookCard book={...} />`, có `key`. `BookCard.jsx` (cha) tạm trả về `<BookCardDesktop />`. Rộng 1100px canh giữa, các thẻ cách nhau 24px.
 
 **Tự kiểm tra:** F12 → Network → chọn **Slow 4G** rồi F5 → thấy "Đang tải..." một lúc.
 
@@ -112,8 +113,9 @@ File: `BookList/BookList.jsx`, `BookList/AllBooks.jsx`.
 ## Phần 4 — MOBILE
 
 ### Bài 8 — Thẻ + danh sách mobile (clamp)
-File: `BookCard/BookCardMobile.jsx`, `BookList/BookListMobile.jsx`, `BookList/BookList.jsx`, `index.css`. **Figma:** frame Mobile, component `BookCardMobile`.
+File: `BookCard/BookCard.jsx`, `BookCard/BookCardMobile.jsx`, `BookList/BookListMobile.jsx`, `BookList/BookList.jsx`, `index.css`. **Figma:** frame Mobile, component `BookCardMobile`.
 - `BookList.jsx`: `isMobile` → `<BookListMobile />`, ngược lại `<BookListDesktop />`.
+- `BookCard.jsx` (cha): `isMobile` → `<BookCardMobile book={book} />`, ngược lại `<BookCardDesktop book={book} />`.
 - Thẻ mobile xếp dọc: ô bìa rộng 100% cao 180px nằm trên, chữ ở dưới, padding 16px, nút Xem thêm rộng 100%. Dữ liệu và state giống thẻ desktop.
 - Font, padding, gap dùng `clamp(sàn, vw, trần)` (công thức trong `LY_THUYET.md`, mobile = px Figma ÷ 3.9).
 
