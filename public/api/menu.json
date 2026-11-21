@@ -1,0 +1,9 @@
+{
+  "status": "success",
+  "data": [
+    { "id": 1, "label": "Trang chủ", "href": "#" },
+    { "id": 2, "label": "Sách", "href": "#" },
+    { "id": 3, "label": "Tác giả", "href": "#" },
+    { "id": 4, "label": "Liên hệ", "href": "#" }
+  ]
+}

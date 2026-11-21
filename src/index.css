@@ -5,6 +5,7 @@
    nền thẻ    #FFFFFF   | viền nhạt  #E5E1DA
    Font: Inter
    Công thức vw: desktop = px Figma ÷ 14.4 (frame 1440) | mobile = px ÷ 3.9 (frame 390)
+   Desktop và Mobile là 2 component riêng (chọn bằng useMobileDetect) nên mỗi bên có class riêng.
 */
 
 * { box-sizing: border-box; }
@@ -16,31 +17,42 @@ body {
   color: #1F2933;
 }
 
-/* ===== Bài 1: Header desktop + sticky ===== */
-.header {
-  /* TODO: flex, 2 đầu, canh giữa dọc, padding, nền trắng, viền dưới, sticky */
+/* ===== Bài 3: Header desktop (HeaderDesktop.jsx) ===== */
+.header-desktop {
+  /* TODO: flex, 2 đầu, canh giữa dọc, cao 80px, padding trái phải 80px, nền trắng, viền dưới, sticky */
 }
+/* TODO: .header-logo, .logo-mark, .header-nav, .btn-login */
 
-/* ===== Bài 2: Header mobile ===== */
+/* ===== Bài 3: Header mobile (HeaderMobile.jsx) ===== */
+.header-mobile {
+  /* TODO: cao 64px, padding 16px, flex 2 đầu */
+}
+/* TODO: .btn-menu (3 gạch 44x44) */
+
+/* ===== Bài 4: Menu trượt từ phải (HeaderMobile.jsx) ===== */
+/* TODO: .menu-overlay, .menu-panel, .menu-panel.open, .menu-panel-header, .menu-close, .menu-links */
+
+/* ===== Bài 5: Thẻ sách desktop (BookCardDesktop.jsx) ===== */
+.book-card-desktop {
+  /* TODO: flex 2 cột, nền trắng, viền, bo 20px, padding 32px, gap 40px */
+}
+/* TODO: .book-cover, .book-info, .book-intro, .btn-more */
+
+/* ===== Bài 6: Đang tải / lỗi (BookList.jsx) ===== */
 /* TODO */
 
-/* ===== Bài 3: Menu trượt từ phải ===== */
-/* TODO: .menu-overlay, .menu-panel, .menu-panel.open */
-
-/* ===== Bài 4: Thẻ sách ===== */
-.book-card {
-  /* TODO */
+/* ===== Bài 6 + Bài 7: Danh sách desktop + nút Xem tất cả ===== */
+.book-list-desktop {
+  /* TODO: rộng 1100px, canh giữa, các thẻ xếp dọc cách nhau 24px */
+}
+.btn-all {
+  /* TODO: 200x52, nền cam, chữ trắng, bo 10px */
 }
 
-/* ===== Bài 5: Đang tải / lỗi ===== */
-/* TODO */
-
-/* ===== Bài 8: Danh sách + nút Xem tất cả ===== */
-.book-list {
-  /* TODO */
+/* ===== Bài 8: Mobile (BookCardMobile.jsx, BookListMobile.jsx) ===== */
+.book-card-mobile {
+  /* TODO: xếp dọc, ô bìa trên rộng 100% cao 180px, padding 16px, nút Xem thêm rộng 100% */
 }
-
-/* ===== Bài 9: Responsive thẻ (≤ 768px) ===== */
-@media (max-width: 768px) {
-  /* TODO */
+.book-list-mobile {
+  /* TODO: padding 16px, các thẻ cách nhau 16px */
 }

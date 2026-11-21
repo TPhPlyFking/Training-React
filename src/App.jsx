@@ -1,16 +1,14 @@
-// App là component cha: lấy dữ liệu và ghép các phần lại.
-import Header from "./components/Header.jsx";
-import BookList from "./components/BookList.jsx";
-// TODO (Bài 5): import useBooks từ "./hooks/useBooks.js"
+// App là component cha: ghép các phần lại.
+// Mỗi phần tự lấy dữ liệu bằng hook của nó:
+//   Header   -> useMenu  (API: /api/menu.json)
+//   BookList -> useBooks (API: /api/books.json)
+import Header from "./components/Header/Header.jsx";
+import BookList from "./components/BookList/BookList.jsx";
 
 function App() {
-  // TODO (Bài 5): const { books, loading, error } = useBooks();
-
   return (
     <>
       <Header />
-      {/* TODO (Bài 5): đang tải -> "Đang tải...", lỗi -> "Không tải được dữ liệu" */}
-      {/* TODO (Bài 6): truyền books xuống BookList qua props */}
       <BookList />
     </>
   );
