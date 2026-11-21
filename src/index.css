@@ -16,25 +16,31 @@ body {
   color: #1F2933;
 }
 
-/* ===== Bài 1: Header desktop ===== */
+/* ===== Bài 1: Header desktop + sticky ===== */
 .header {
-  /* TODO: flex, 2 đầu, canh giữa dọc, padding, nền trắng, viền dưới */
+  /* TODO: flex, 2 đầu, canh giữa dọc, padding, nền trắng, viền dưới, sticky */
 }
 
-/* ===== Bài 2: Header sticky + mobile ===== */
+/* ===== Bài 2: Header mobile ===== */
 /* TODO */
 
-/* ===== Bài 3: Thẻ sách ===== */
+/* ===== Bài 3: Menu trượt từ phải ===== */
+/* TODO: .menu-overlay, .menu-panel, .menu-panel.open */
+
+/* ===== Bài 4: Thẻ sách ===== */
 .book-card {
   /* TODO */
 }
 
-/* ===== Bài 6: Danh sách + nút xem tất cả ===== */
+/* ===== Bài 5: Đang tải / lỗi ===== */
+/* TODO */
+
+/* ===== Bài 8: Danh sách + nút Xem tất cả ===== */
 .book-list {
   /* TODO */
 }
 
-/* ===== Bài 7: Responsive (≤ 768px) ===== */
+/* ===== Bài 9: Responsive thẻ (≤ 768px) ===== */
 @media (max-width: 768px) {
   /* TODO */
 }

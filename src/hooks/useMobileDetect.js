@@ -1,4 +1,4 @@
-// Bài 8: Hook nhận biết đang ở màn hình mobile hay không
+// Bài 2: Hook nhận biết đang ở màn hình mobile hay không
 // Trả về true khi màn hình <= 768px, false khi lớn hơn.
 // Kéo nhỏ / kéo to cửa sổ thì giá trị phải tự đổi theo.
 //

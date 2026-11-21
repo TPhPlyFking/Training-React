@@ -1,4 +1,4 @@
-// Bài 9: Hook lấy danh sách sách từ API
+// Bài 5: Hook lấy danh sách sách từ API
 // API giả: "/api/books.json" (file nằm trong thư mục public/api)
 // Dữ liệu trả về có dạng: { status: "success", data: [ ...sách ] }
 //

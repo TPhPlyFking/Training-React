@@ -1,7 +1,7 @@
-// Bài 4 + Bài 6: Danh sách sách
-// - Nhận books từ App qua props
-// - Dùng map để vẽ ra nhiều <BookCard />, nhớ key
-// - (Bài 6) Lúc đầu chỉ hiện 3 cuốn, bấm "Xem tất cả" hiện hết, bấm lại thì thu gọn
+// Bài 6 + Bài 8: Danh sách sách
+// - (Bài 4) Tạm thời render 1 <BookCard /> để làm giao diện thẻ
+// - (Bài 6) Nhận books từ App qua props, dùng map vẽ nhiều <BookCard book={...} />, nhớ key
+// - (Bài 8) Lúc đầu hiện 3 cuốn, bấm "Xem tất cả" hiện hết, bấm lại "Thu gọn" về 3
 
 function BookList() {
   return (
