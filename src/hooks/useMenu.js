@@ -11,8 +11,15 @@ import { fetchApiData } from "../api/apiHelper.js";
 
 const API_URL = "/api/menu.json";
 
-function useMenu() {
-  // TODO
+export default function useMenu() {
+  const [menu, setMenu] = useState([]);
+  useEffect (() => {
+    async function loadData() {
+      const data = await fetchApiData(API_URL);
+      if (data === null) return;
+      setMenu(data);
+    }
+    loadData();
+  }, []);
+  return menu;
 }
-
-export default useMenu;

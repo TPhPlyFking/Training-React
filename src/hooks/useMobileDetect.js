@@ -12,7 +12,7 @@
 import { useState, useEffect } from "react";
 
 function useMobileDetect() {
-  const mediaQuery = window.mediaQuery("(max-width: 768px)");
+  const mediaQuery = window.matchMedia("(max-width: 768px)");
   const [isMobile, setIsMobile] = useState(mediaQuery.matches);
 
   useEffect (() => {
@@ -20,9 +20,9 @@ function useMobileDetect() {
       setIsMobile(event.matches);
     }
 
-    addEventListener.mediaQuery("change", handleChange);
+    mediaQuery.addEventListener("change", handleChange);
     return () => {
-      removeEventListener.mediaQuery("change", handleChange);
+      mediaQuery.removeEventListener("change", handleChange);
     }
 
   }, []);

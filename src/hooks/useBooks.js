@@ -20,7 +20,7 @@ export default function useBooks() {
       if (data === null) return;
       setBooks(data);
     }
-    return loadData;
+    loadData();
   }, []);
   return books;
 }
