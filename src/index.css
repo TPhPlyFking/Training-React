@@ -20,17 +20,30 @@ body {
 /* ===== Bài 3: Header desktop (HeaderDesktop.jsx) ===== */
 .header-desktop {
   /* TODO: flex, 2 đầu, canh giữa dọc, cao 80px, padding trái phải 80px, nền trắng, viền dưới, sticky */
-  display: flex;
-  align-items: center;
+  
   position: sticky;
   top: 0; 
   z-index: 100;
+  
+}
 
+.header-content {
+  display: flex;
+  justify-content: space-around;
 }
 
 .header-logo {
   display: flex;
-  align-items: center;
+  
+}
+
+.header-link {
+  display: flex;
+
+}
+
+.header-logo p {
+  font-weight: bold;
 }
 /* TODO: .header-logo, .logo-mark, .header-nav, .btn-login */
 
